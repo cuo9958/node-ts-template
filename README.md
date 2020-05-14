@@ -2,6 +2,8 @@
 
 这是一个脚手架，项目目的是用 nodejs+typescript 创建一个空项目
 
+支持使用`create-app-git`命令一键安装。`create-app-git init node-ts-template`或者`npx create-app-git init node-ts-template`
+
 ## 命令
 
 1. `dev`开发模式，执行启动就好，默认端口 8082
