@@ -25,7 +25,7 @@ Files.init(
 //强制初始化数据库
 // Files.sync({ force: true });
 
-module.exports = {
+export default {
     insert: function (model: any) {
         return Files.create(model);
     },
