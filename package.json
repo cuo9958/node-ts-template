@@ -20,19 +20,21 @@
     },
     "homepage": "https://github.com/cuo9958/node-ts-template#readme",
     "dependencies": {
-        "axios": "0.19.2",
+        "axios": "0.21.3",
         "config": "3.3.1",
         "cron": "1.8.2",
         "ioredis": "4.16.1",
         "koa": "2.11.0",
         "koa-body": "4.1.1",
-        "koa-router": "8.0.8",
+        "koa-router": "10.1.1",
         "mongodb": "3.5.5",
         "mysql2": "2.1.0",
-        "sequelize": "5.21.6"
+        "sequelize": "6.9.0"
     },
     "devDependencies": {
         "@types/config": "0.0.36",
+        "@types/http-assert": "1.3",
+        "@types/node": "^10.17.60",
         "@types/ioredis": "4.14.9",
         "@types/koa": "2.11.3",
         "@types/koa-router": "7.4.0",
