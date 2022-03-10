@@ -1,5 +1,5 @@
-import { MongoClient } from "mongodb";
-import config from "config";
+import { MongoClient, Db } from 'mongodb';
+import config from 'config';
 
 interface ICONF {
     url: string;
@@ -9,21 +9,30 @@ interface ICONF {
     pwd: string;
 }
 
-const cfg: ICONF = config.get("mg");
+const cfg: ICONF = config.get('mongodb');
 
-export default async function () {
+let dbMg: Db | null = null;
+
+async function connect() {
     let options = {};
     if (cfg.user) {
         options = {
-            replicaSet: cfg.reset,
             authSource: cfg.name,
             auth: {
-                user: cfg.user,
+                username: cfg.user,
                 password: cfg.pwd,
             },
         };
     }
     const client = await MongoClient.connect(cfg.url, options);
-    console.log("MongoDB连接成功", cfg.url);
-    return client.db(cfg.name);
+    console.log('MongoDB连接成功', cfg.url);
+    dbMg = client.db(cfg.name);
+    return dbMg;
+}
+
+connect();
+
+export default async function () {
+    if (dbMg) return dbMg;
+    return connect();
 }
